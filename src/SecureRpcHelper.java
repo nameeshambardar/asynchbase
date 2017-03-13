@@ -202,7 +202,7 @@ public abstract class SecureRpcHelper {
       return payload;
     }
 
-    final int len = payload.readInt();
+    final int len = payload.readableBytes();
     try {
       final ChannelBuffer unwrapped = ChannelBuffers.wrappedBuffer(
               sasl_client.unwrap(payload.readBytes(len).array(), 0, len));
